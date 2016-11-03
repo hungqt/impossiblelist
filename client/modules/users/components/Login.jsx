@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Panel, Input, ButtonInput, Glyphicon } from 'react-bootstrap';
+import { Col, Panel, FormGroup, FormControl, Button, Glyphicon } from 'react-bootstrap';
 
 class Login extends React.Component {
 	render() {
@@ -10,9 +10,11 @@ class Login extends React.Component {
 					<h1>Login</h1>
 					{error ? <p style={{color: 'red'}}>{error}</p> : null}
 					<form>
-						<Input ref="email" type="email" placeholder="Email" />
-						<Input ref="password" type="password" placeholder="Password" />
-						<ButtonInput onClick={this.login.bind(this)} bsStyle="primary" type="submit" value="Login"/>
+						<FormGroup>
+							<FormControl ref="email" type="email" placeholder="Email" />
+							<FormControl ref="password" type="password" placeholder="Password" />
+							<Button onClick={this.login.bind(this)} bsStyle="primary" type="submit" value="Login"/>
+						</FormGroup>
 					</form>
 				</Panel>
 			</Col>
@@ -24,8 +26,8 @@ class Login extends React.Component {
 		const {loginUser} = this.props;
 		const {email, password} = this.refs;
 		loginUser(email.getValue(), password.getValue());
-		email.getInputDOMNode().value = '';
-		password.getInputDOMNode().value = '';
+		email.getFormControlDOMNode().value = '';
+		password.getFormControlDOMNode().value = '';
 	}
 }
 

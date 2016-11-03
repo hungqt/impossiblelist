@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Panel, Input, ButtonInput, Glyphicon } from 'react-bootstrap';
+import { Col, Panel, FormGroup, FormControl, Button, Glyphicon } from 'react-bootstrap';
 
 class NewUser extends React.Component {
 	render() {
@@ -10,9 +10,11 @@ class NewUser extends React.Component {
 					<h1>Register</h1>
 					{error ? <p style={{color: 'red'}}>{error}</p> : null}
 					<form>
-						<Input ref="email" type="email" placeholder="Email" />
-						<Input ref="password" type="password" placeholder="Password" />
-						<ButtonInput onClick={this.createUser.bind(this)} bsStyle="primary" type="submit" value="Sign Up"/>
+						<FormGroup>
+							<FormControl ref="email" type="email" placeholder="Email" />
+							<FormControl ref="password" type="password" placeholder="Password" />
+							<Button onClick={this.createUser.bind(this)} bsStyle="primary" type="submit" value="Sign Up"/>
+						</FormGroup>
 					</form>
 				</Panel>
 			</Col>
@@ -24,8 +26,8 @@ class NewUser extends React.Component {
 		const {create} = this.props;
 		const {email, password} = this.refs;
 		create(email.getValue(), password.getValue());
-		email.getInputDOMNode().value = '';
-		password.getInputDOMNode().value = '';
+		email.getFormControlDOMNode().value = '';
+		password.getFormControlDOMNode().value = '';
 	}
 }
 

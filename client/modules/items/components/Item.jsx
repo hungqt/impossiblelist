@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Panel, Glyphicon, Input } from 'react-bootstrap';
+import { Row, Col, Panel, Glyphicon, FormControl, FormGroup } from 'react-bootstrap';
 
 const Item = ({content}) => (
   <Col xs={4}>
@@ -19,7 +19,9 @@ const Item = ({content}) => (
       </Row>
       <Row>
         <Col xs={12}>
-          <Input type="checkbox" label="Complete?"/>
+          <FormGroup>
+            <FormControl type="checkbox" label="Complete?"/>
+          </FormGroup>
         </Col>
       </Row>
     </Panel>
