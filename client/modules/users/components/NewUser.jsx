@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Col, Panel, FormGroup, FormControl, Button, Glyphicon } from 'react-bootstrap';
 
 class NewUser extends React.Component {
@@ -13,7 +14,7 @@ class NewUser extends React.Component {
 						<FormGroup>
 							<FormControl ref="email" type="email" placeholder="Email" />
 							<FormControl ref="password" type="password" placeholder="Password" />
-							<Button onClick={this.createUser.bind(this)} bsStyle="primary" type="submit" value="Sign Up"/>
+							<Button onClick={this.createUser.bind(this)} bsStyle="primary" type="submit"> Sign Up</Button>
 						</FormGroup>
 					</form>
 				</Panel>
@@ -25,9 +26,9 @@ class NewUser extends React.Component {
 		e.preventDefault();
 		const {create} = this.props;
 		const {email, password} = this.refs;
-		create(email.getValue(), password.getValue());
-		email.getFormControlDOMNode().value = '';
-		password.getFormControlDOMNode().value = '';
+		create(ReactDOM.findDOMNode(email).value, ReactDOM.findDOMNode(password).value);
+		ReactDOM.findDOMNode(email).value = '';
+		ReactDOM.findDOMNode(password).value = '';
 	}
 }
 

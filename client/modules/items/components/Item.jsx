@@ -1,20 +1,20 @@
 import React from 'react';
 import { Row, Col, Panel, Glyphicon, FormControl, FormGroup } from 'react-bootstrap';
 
-const Item = ({content}) => (
+const Item = ({item}) => (
   <Col xs={4}>
     <Panel>
       <Row>
         <Col xs={10}>
-          <h2> Thing to do </h2>
+          <h2> {item.name} </h2>
         </Col>
         <Col xs={2}>
-          <a href="/edit"><Glyphicon glyph="pencil"></Glyphicon></a>
+          <a href={`/edit/${item._id}`}><Glyphicon glyph="pencil"></Glyphicon></a>
         </Col>
       </Row>
       <Row>
         <Col xs={12}>
-          <p> Some details about the thing that needs to be done. </p>
+          <p> {item.description} </p>
         </Col>
       </Row>
       <Row>

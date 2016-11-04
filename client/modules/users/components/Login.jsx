@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Col, Panel, FormGroup, FormControl, Button, Glyphicon } from 'react-bootstrap';
 
 class Login extends React.Component {
@@ -13,7 +14,7 @@ class Login extends React.Component {
 						<FormGroup>
 							<FormControl ref="email" type="email" placeholder="Email" />
 							<FormControl ref="password" type="password" placeholder="Password" />
-							<Button onClick={this.login.bind(this)} bsStyle="primary" type="submit" value="Login"/>
+							<Button onClick={this.login.bind(this)} bsStyle="primary" type="submit" >Login</Button>
 						</FormGroup>
 					</form>
 				</Panel>
@@ -25,9 +26,9 @@ class Login extends React.Component {
 		e.preventDefault();
 		const {loginUser} = this.props;
 		const {email, password} = this.refs;
-		loginUser(email.getValue(), password.getValue());
-		email.getFormControlDOMNode().value = '';
-		password.getFormControlDOMNode().value = '';
+		loginUser(ReactDOM.findDOMNode(email).value, ReactDOM.findDOMNode(password).value);
+		ReactDOM.findDOMNode(email).value = '';
+		ReactDOM.findDOMNode(password).value = '';
 	}
 }
 

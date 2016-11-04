@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import { Col, Panel, FormGroup, FormControl, Button, Glyphicon } from 'react-bootstrap';
 
 class NewCategory extends React.Component {
@@ -12,7 +13,7 @@ class NewCategory extends React.Component {
           <form>
             <FormGroup>
               <FormControl ref="name" type="text" placeholder="Name" />
-              <Button onClick={this.createCategory.bind(this)} bsStyle="primary" type="submit" value="Add Category" />
+              <Button onClick={this.createCategory.bind(this)} bsStyle="primary" type="submit"> Add Category </Button>
             </FormGroup>
           </form>
         </Panel>
@@ -24,8 +25,8 @@ class NewCategory extends React.Component {
     e.preventDefault();
     const {create} = this.props;
     const {name} = this.refs;
-    create(name.getValue());
-    name.getFormControlDOMNode().value = '';
+    create(ReactDOM.findDOMNode(name).value);
+    ReactDOM.findDOMNode(name).value = '';
   }
 }
 
