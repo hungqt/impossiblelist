@@ -11,7 +11,7 @@ export default {
         return LocalState.set('SAVING_ERROR', err.message);
       }
     });
-    FlowRouter.go('/');
+    FlowRouter.go('/myfavorites');
   },
 
   clearErrors({LocalState}) {
