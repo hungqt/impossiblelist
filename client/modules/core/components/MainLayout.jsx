@@ -1,12 +1,14 @@
 import React from 'react';
 import { Grid, Row, Col, PageHeader} from 'react-bootstrap';
 import ItemProgress from '../../items/components/ItemProgress.jsx';
+import Navbar from './NavBar.jsx';
 
 const Layout = ({content}) => (
   <Grid>
+    <Navbar />
     <Row>
       <Col xs={12}>
-        <PageHeader> Impossible List </PageHeader>
+        <PageHeader> Restaurapp </PageHeader>
       </Col>
     </Row>
     <Row>

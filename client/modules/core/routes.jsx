@@ -8,12 +8,22 @@ import CategoryList from '../items/containers/CategoryList.js';
 import NewCategory from '../items/containers/NewCategory.js';
 import NewUser from '../users/containers/NewUser.js';
 import Login from '../users/containers/Login.js';
+import MapView from '../items/components/MapView.jsx';
 
 export default function (injectDeps, {FlowRouter}) {
   const MainLayoutCtx = injectDeps(Layout);
 
   //Router for homepage "/"
   FlowRouter.route('/', {
+    name: 'items.list',
+    action() {
+      mount(MainLayoutCtx, {
+        content: () => (<MapView />)
+      });
+    }
+  });
+
+  FlowRouter.route('/myfavorites', {
     name: 'items.list',
     action() {
       mount(MainLayoutCtx, {
