@@ -6,12 +6,11 @@ export default {
 
     LocalState.set('CREATE_ITEM_ERROR', null);
 
-    Meteor.call('items.create', name, description, due, (err) => {
+    Meteor.call('items.create', name, description, (err) => {
       if (err) {
         return LocalState.set('SAVING_ERROR', err.message);
       }
     });
-
     FlowRouter.go('/');
   },
 

@@ -21,4 +21,14 @@ export default function () {
       Items.insert(item);
     }
   });
+
+  Meteor.methods({
+    'items.markComplete'(complete, itemId){
+      check(complete, Boolean);
+      check(itemId, String);
+      Items.update(itemId, {
+        $set: {complete: complete}
+      });
+    }
+  });
 }

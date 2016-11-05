@@ -11,7 +11,6 @@ const Layout = ({content}) => (
     </Row>
     <Row>
       <Col xs={12} sm={6}>
-        <ItemProgress />
       </Col>
     </Row>
     {content()}
