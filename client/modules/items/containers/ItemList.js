@@ -5,7 +5,8 @@ import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 export const composer = ({context}, onData) => {
   const {Meteor, Collections} = context();
   if (Meteor.subscribe('items.list').ready()) {
-    const items = Collections.Items.find().fetch();
+    //({}, {sort: {createdAt: -1}}) is sorting the displayal of items after which one was created first
+    const items = Collections.Items.find({}, {sort: {createdAt: -1}}).fetch();
     const totalItems = Collections.Items.find().count();
     const completedItems = Collections.Items.find({complete: true}).count();
     const percentage = Math.round((completedItems/totalItems) * 100);
