@@ -13,7 +13,7 @@ export class MapView extends React.Component {
 	}
 
 	onReady(mapProps, map){
-		//When the map is ready and mounted
+		//When the map is ready and mounted, run this
 		const {google} = this.props;
 		const opts = {
 			location: map.center,
