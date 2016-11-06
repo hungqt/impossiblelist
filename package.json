@@ -26,8 +26,10 @@
   },
   "dependencies": {
     "domready": "^1.0.8",
+    "google-maps-react": "^1.0.19",
     "mantra-core": "^1.2.0",
     "react": "^0.14.6",
+    "react-bootstrap": "^0.30.6",
     "react-bootstrap-datetimepicker": "0.0.22",
     "react-datetime": "^2.6.2",
     "react-dom": "^0.14.6",
